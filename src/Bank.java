@@ -15,4 +15,9 @@ public class Bank {
 	 */
 	private ArrayList<Account> accounts;
 
+
+	public String getNewUserUUID() {
+		return "";
+	}
+
 }
