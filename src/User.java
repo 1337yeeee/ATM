@@ -53,4 +53,12 @@ public class User {
 		System.out.printf("New user %s %s created\nUser's uuid: %s\n", this.lastName, this.firstName, this.uuid);
 	}
 
+	/**
+	 * Add an account for the user
+	 * @param account the account to add
+	 */
+	public void addAccount(Account account) {
+		this.accounts.add(account);
+	}
+
 }
