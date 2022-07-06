@@ -64,4 +64,15 @@ public class User {
 	public String getUUID() {
 		return uuid;
 	}
+
+	public boolean validatePIN(String pin) {
+
+		try {
+			MessageDigest md = MessageDigest.getInstance("MD5");
+			return MessageDigest.isEqual(md.digest(pin.getBytes()), this.pinHash);
+		} catch (NoSuchAlgorithmException e) {
+			throw new RuntimeException(e);
+		}
+
+	}
 }

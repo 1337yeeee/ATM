@@ -36,9 +36,6 @@ public class Account {
 		// create empty array list for transactions
 		this.transactions = new ArrayList<Transaction>();
 
-		// add account to the holder's and the bank's lists of accounts
-		this.holder.addAccount(this);
-		theBank.addAccount(this);
 	}
 
 	public String getUUID() {

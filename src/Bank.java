@@ -77,12 +77,31 @@ public class Bank {
 		return uuid;
 	}
 
-	/**
-	 * Add an account for the bank
-	 * @param account the account to add
-	 */
-	public void addAccount(Account account) {
-		this.accounts.add(account);
+	public User addUser(String firstName, String lastName, String pin) {
+
+		// create a new user object and add it to ArrayList<User> users
+		User newUser = new User(firstName, lastName, pin, this);
+		this.users.add(newUser);
+
+		// create a savings account for the user
+		Account newAccount = new Account("Savings", newUser, this);
+
+		newUser.addAccount(newAccount);
+		this.accounts.add(newAccount);
+
+		return newUser;
+	}
+
+	public User userLogin(String userID, String pin) {
+
+		for(User u: this.users) {
+			if(u.getUUID().compareTo(userID) == 0 && u.validatePIN(pin)) {
+				return u;
+			}
+		}
+
+		return null;
+
 	}
 
 }
