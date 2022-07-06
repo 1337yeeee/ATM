@@ -41,4 +41,7 @@ public class Account {
 		theBank.addAccount(this);
 	}
 
+	public String getUUID() {
+		return uuid;
+	}
 }
