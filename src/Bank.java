@@ -17,6 +17,12 @@ public class Bank {
 	private ArrayList<Account> accounts;
 
 
+	public Bank(String name) {
+		this.name = name;
+		this.users = new ArrayList<User>();
+		this.accounts = new ArrayList<Account>();
+	}
+
 	/**
 	 * generate new universally unique ID
 	 * @return the uuid
@@ -104,4 +110,11 @@ public class Bank {
 
 	}
 
+	public void addAccount(Account theAccount) {
+		this.accounts.add(theAccount);
+	}
+
+	public String getName() {
+		return this.name;
+	}
 }

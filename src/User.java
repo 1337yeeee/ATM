@@ -27,6 +27,7 @@ public class User {
 
 	/**
 	 * Create a new user
+	 *
 	 * @param firstName the user's first name
 	 * @param lastName  the user's last name
 	 * @param pin       the user's account pin
@@ -55,6 +56,7 @@ public class User {
 
 	/**
 	 * Add an account for the user
+	 *
 	 * @param account the account to add
 	 */
 	public void addAccount(Account account) {
@@ -74,5 +76,40 @@ public class User {
 			throw new RuntimeException(e);
 		}
 
+	}
+
+	public String getFirstName() {
+		return this.firstName;
+	}
+
+	public void printAccountSummary() {
+
+		System.out.printf("\n\n%s's accounts summary\n", this.firstName);
+
+		for (int i = 0; i < this.accounts.size(); i++) {
+			System.out.printf("%d) %s", i + 1, this.accounts.get(i).getSummaryLine());
+		}
+
+		System.out.println();
+	}
+
+	public int numAccounts() {
+		return this.accounts.size();
+	}
+
+	public void printAcctTransactionHistory(int acctIdx) {
+		this.accounts.get(acctIdx).printTransactionHistory();
+	}
+
+	public double getAcctBalance(int fromAcct) {
+		return this.accounts.get(fromAcct).getBalance();
+	}
+
+	public String  getAcctUUID(int toAcct) {
+		return this.accounts.get(toAcct).getUUID();
+	}
+
+	public void addAcctTransaction(int acctIdx, double amount, String memo) {
+		this.accounts.get(acctIdx).addTransaction(amount, memo);
 	}
 }
