@@ -40,6 +40,7 @@ public class User {
 		//store the pin's MD5 hash, rather than it's original value
 		try {
 			MessageDigest md = MessageDigest.getInstance("MD5");
+			this.pinHash = md.digest(pin.getBytes());
 		} catch (NoSuchAlgorithmException e) {
 			throw new RuntimeException(e);
 		}
